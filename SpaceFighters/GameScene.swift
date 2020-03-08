@@ -19,10 +19,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
-        
     }
     
     var gameTimer:Timer!
+    
+    var possibleAliens = ["alien", "alien2", "alien3"]
     
     override func didMove(to view: SKView) {
       
@@ -58,7 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func addAlien () {
-        
+        possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as!
+        [String]
         
         
     }
