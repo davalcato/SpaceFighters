@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
         
         player.size = CGSize(width: self.player.size.width*2, height: self.player.size.height*2)
+        player.position = CGPoint(x: frame.midX - 5, y: frame.midY - 500)
         
         
         self.addChild(player)
