@@ -61,7 +61,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func addAlien () {
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as!
         [String]
+        let alien = SKSpriteNode(imageNamed: possibleAliens[0])
+        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 414)
+        let position = CGFloat(randomAlienPosition.nextInt())
         
+        alien.position = CGPoint(x: position, y: self.frame.size.height + alien.size.height)
+        
+        alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
+        alien.physicsBody?.isDynamic = true
         
     }
     
