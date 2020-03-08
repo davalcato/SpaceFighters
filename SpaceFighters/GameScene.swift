@@ -25,6 +25,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var possibleAliens = ["alien", "alien2", "alien3"]
     
+    let alienCategory:UInt32 = 0x1 << 1
+    let photoTorpedoCategory:UInt32 = 0x1 << 1
+    
     override func didMove(to view: SKView) {
       
         starfield = SKEmitterNode(fileNamed: "Starfield")
@@ -69,6 +72,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
         alien.physicsBody?.isDynamic = true
+        
+        alien.physicsBody?.categoryBitMask = alienCategory
         
     }
     
