@@ -18,10 +18,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score:Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
-            
         }
         
     }
+    
+    var gameTimer:Timer!
     
     override func didMove(to view: SKView) {
       
@@ -45,13 +46,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scoreLabel = SKLabelNode(text: "Score: 0")
         scoreLabel.position = CGPoint(x: -200, y: 484)
-        scoreLabel.fontName = "AmeriacanTypewriter-Bold"
+        scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 36
         scoreLabel.fontColor = UIColor.white
         score = 0
         
         self.addChild(scoreLabel)
        
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func addAlien () {
+        
+        
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
