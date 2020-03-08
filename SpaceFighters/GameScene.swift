@@ -37,9 +37,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.size = CGSize(width: self.player.size.width*2, height: self.player.size.height*2)
         
+        
         self.addChild(player)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
+        
+        scoreLabel = SKLabelNode(text: "Score: 0")
+        scoreLabel.position = CGPoint(x: -200, y: 484)
+        scoreLabel.fontName = "AmeriacanTypewriter-Bold"
+        scoreLabel.fontSize = 36
+        scoreLabel.fontColor = UIColor.white
+        score = 0
+        
+        self.addChild(scoreLabel)
        
     }
     
