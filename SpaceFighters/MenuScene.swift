@@ -34,7 +34,12 @@ class MenuScene: SKScene {
         if let location = touch?.location(in: self) {
             let nodesArray = self.nodes(at: location)
             
-            
+            if nodesArray.first?.name == "newGameButton" {
+                let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+                
+                
+                
+            }
             
         }
     }
