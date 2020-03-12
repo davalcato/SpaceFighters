@@ -20,8 +20,8 @@ class MenuScene: SKScene {
         starfield = self.childNode(withName: "starfield") as! SKEmitterNode
         starfield.advanceSimulationTime(10)
         
-        newGameButtonNode = (self.childNode(withName: "newGameButton") as! SKSpriteNode)
-        difficultyButtonNode = (self.childNode(withName: "newGameButton") as! SKSpriteNode)
+        newGameButtonNode = self.childNode(withName: "newGameButton") as! SKSpriteNode
+        difficultyButtonNode = self.childNode(withName: "difficultyButton") as! SKSpriteNode
         
         difficultyButtonNode.texture = SKTexture(imageNamed: "difficultyButton")
         difficultyLabelNode = self.childNode(withName: "difficultyLabel") as! SKLabelNode
@@ -36,7 +36,9 @@ class MenuScene: SKScene {
             
             if nodesArray.first?.name == "newGameButton" {
                 let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+                let gameScene = GameScene(size: self.size)
                 
+                self.view?.presentScene(gameScene, transition: transition)
                 
                 
             }
