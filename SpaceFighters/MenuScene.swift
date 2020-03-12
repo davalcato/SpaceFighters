@@ -16,6 +16,11 @@ class MenuScene: SKScene {
     var difficultyButtonNode:SKSpriteNode!
     var difficultyLabelNode:SKLabelNode!
     
-    
+    override func didMove(to view: SKView) {
+        starfield = self.childNode(withName: "starfield") as! SKEmitterNode
+        starfield.advanceSimulationTime(10)
+        
+        
+    }
     
 }
