@@ -29,4 +29,13 @@ class MenuScene: SKScene {
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if let location = touch?.location(in: self) {
+            let nodesArray = self.nodes(at: location)
+            
+            
+            
+        }
+    }
 }
