@@ -66,8 +66,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         score = 0
         
         self.addChild(scoreLabel)
-       
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        
+        // If we fire the Timer my frequently then we can create more aliens
+        var timeInterval = 0.75
+        
+        if UserDefaults.standard.bool(forKey: "hard") {
+            timeInterval = 0.3
+            
+        }
+        // More aliens will be generated according to the choice made out of hard or easy.
+        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
         
         motionManger.accelerometerUpdateInterval = 0.2
         motionManger.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
