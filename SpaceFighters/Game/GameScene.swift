@@ -92,8 +92,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Looping thru 3 live here and everytime we iterate thru that loop we create a live node
         for live in 1 ... 3 {
             let liveNode = SKSpriteNode(imageNamed: "shuttle")
-            // Now we position our live nodes
-            liveNode.position = CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+            // Now we position our live nodes and they're size
+            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4 - live) * liveNode.size.width, y: self.frame.size.height - 60)
+            self.addChild(liveNode)
+            livesArray.append(liveNode)
+            
         }
     }
     
