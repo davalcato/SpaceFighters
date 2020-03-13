@@ -40,7 +40,15 @@ class MenuScene: SKScene {
                 let gameScene = GameScene(size: self.size)
                 self.view?.presentScene(gameScene, transition: transition)
                 
+            } else if nodesArray.first?.name == "difficultyButton" {
+                changeDifficulty()
             }
         }
+    }
+    
+    func changeDifficulty() {
+        
+        
+        
     }
 }
