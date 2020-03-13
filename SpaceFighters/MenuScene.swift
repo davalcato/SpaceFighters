@@ -26,6 +26,15 @@ class MenuScene: SKScene {
         difficultyButtonNode.texture = SKTexture(imageNamed: "difficultyButton")
         difficultyLabelNode = self.childNode(withName: "difficultyLabel") as? SKLabelNode
         
+        // Want to display to correct difficuly when game is launched
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "hard") {
+            difficultyLabelNode.text = "Hard"
+        }else{
+            difficultyLabelNode.text = "Easy"
+            
+        }
         
     }
     
@@ -57,7 +66,8 @@ class MenuScene: SKScene {
         }else{
             difficultyLabelNode.text = "Easy"
             userDefaults.set(false, forKey: "hard")
-            
         }
+        
+        userDefaults.synchronize()
     }
 }
