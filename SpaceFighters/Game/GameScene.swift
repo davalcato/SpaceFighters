@@ -32,8 +32,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
     
+    // Adding a new Property with the lives
+    var livesArray:[SKSpriteNode]!
+    
     
     override func didMove(to view: SKView) {
+        //Calling addLives directly when we move into that view.
+        addLives()
       
         starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
@@ -54,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.position = CGPoint(x: 80, y: 70)
+        scoreLabel.position = CGPoint(x: 80, y: self.frame.size.height - 60)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 26
         scoreLabel.fontColor = UIColor.white
@@ -72,6 +77,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
         }
+    }
+    
+    func addLives() {
+        
         
     }
     
