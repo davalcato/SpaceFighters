@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.position = CGPoint(x: 80, y: self.frame.size.height - 60)
+        scoreLabel.position = CGPoint(x: 80, y: self.frame.size.height - 70)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 26
         scoreLabel.fontColor = UIColor.white
@@ -133,6 +133,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var actionArray = [SKAction]()
         
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height), duration: TimeInterval(animationDuration)))
+        
+        // This action happens only if the aliens move off the bottom screen then a sound goes off
+        actionArray.append(SKAction.run {
+            self.run(SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false))
+            // Check the lives count here
+            if self.livesArray.count > 0 {
+                // Here we remove a live
+                let liveNode = self.livesArray.first
+                // Make the aliens disappear
+                liveNode?.removeFromParent()
+                self.livesArray.removeFirst()
+                
+                // Here we check to see if self and LivesArray count has reached zero
+                
+                
+            }
+            
+        })
         
         actionArray.append(SKAction.removeFromParent())
         
