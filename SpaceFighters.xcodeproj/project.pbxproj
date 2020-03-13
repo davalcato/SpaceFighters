@@ -100,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7501433E241C1BA700E3AEA3 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				7501433A241B25A200E3AEA3 /* GameOverScene.sks */,
+				7501433C241B297600E3AEA3 /* GameOverScene.swift */,
+			);
+			path = GameOver;
+			sourceTree = "<group>";
+		};
 		7506C2D12415551D00782859 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +137,7 @@
 				7506C2E52415551D00782859 /* GameViewController.swift */,
 				7506C2E72415551D00782859 /* Main.storyboard */,
 				75A1CEB9241B14F00007F3D9 /* Menu */,
+				7501433E241C1BA700E3AEA3 /* GameOver */,
 				75A1CEA82419C9BC0007F3D9 /* Game */,
 				75A1CEA92419CA010007F3D9 /* Emitters */,
 				75A1CEAA2419CA1D0007F3D9 /* Sounds */,
@@ -190,8 +200,6 @@
 			children = (
 				75A1CEB7241AE36E0007F3D9 /* MenuScene.swift */,
 				75A1CEB5241AD4090007F3D9 /* MenuScene.sks */,
-				7501433A241B25A200E3AEA3 /* GameOverScene.sks */,
-				7501433C241B297600E3AEA3 /* GameOverScene.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";

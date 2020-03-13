@@ -16,11 +16,11 @@ class GameOverScene: SKScene {
     var newGameButtonNode:SKSpriteNode!
     
     override func didMove(to view: SKView) {
-        scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode
+        scoreLabel = self.childNode(withName: "scoreLabel") as? SKLabelNode
         scoreLabel.text = "\(score)"
         
-        newGameButtonNode = self.childNode(withName: "newGameButton") as! SKSpriteNode
-        newGameButtonNode.texture = SKTexture(imageNamed: "newGameButton")
+        newGameButtonNode = self.childNode(withName: "newGameButton") as? SKSpriteNode
+        newGameButtonNode.texture = SKTexture(imageNamed: "newGameButton") 
         
     }
     
@@ -31,7 +31,9 @@ class GameOverScene: SKScene {
             
             if node[0].name == "newGameButton" {
                 let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+                // Creating a new game scene here
                 let gameScene = GameScene(size: self.size)
+                // Then presenting the screen if she wants a new game
                 self.view?.presentScene(gameScene, transition: transition)
                 
             }

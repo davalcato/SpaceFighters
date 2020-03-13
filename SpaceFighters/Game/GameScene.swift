@@ -32,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
     
-    // Adding a new Property with the lives
+    // Adds a new Property with the lives
     var livesArray:[SKSpriteNode]!
     
     
@@ -149,6 +149,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if self.livesArray.count == 0 {
                     // And if it did that this means that the game is over
                     // GameOverScreen Transition
+                    let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+                    let gameOver = SKScene(fileNamed: "GameOverScene") as! GameOverScene
+                    gameOver.score = self.score
+                    self.view?.presentScene(gameOver, transition: transition)
                     
                 }
                 
