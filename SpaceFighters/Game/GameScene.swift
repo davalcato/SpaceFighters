@@ -46,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
         
         player.size = CGSize(width: self.player.size.width*2, height: self.player.size.height*2)
-        player.position = CGPoint(x: frame.midX - 5, y: frame.midY - 500)
+        player.position = CGPoint(x: frame.midX - 5, y: frame.midY - 300)
         
         
         self.addChild(player)
@@ -54,9 +54,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.position = CGPoint(x: -200, y: 484)
+        scoreLabel.position = CGPoint(x: 80, y: 70)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
-        scoreLabel.fontSize = 36
+        scoreLabel.fontSize = 26
         scoreLabel.fontColor = UIColor.white
         score = 0
         
