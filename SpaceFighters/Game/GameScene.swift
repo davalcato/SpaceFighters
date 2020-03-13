@@ -146,7 +146,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.livesArray.removeFirst()
                 
                 // Here we check to see if self and LivesArray count has reached zero
-                
+                if self.livesArray.count == 0 {
+                    // And if it did that this means that the game is over
+                    // GameOverScreen Transition
+                    
+                }
                 
             }
             
