@@ -88,8 +88,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addLives() {
-        
-        
+        livesArray = [SKSpriteNode]()
+        // Looping thru 3 live here and everytime we iterate thru that loop we create a live node
+        for live in 1 ... 3 {
+            let liveNode = SKSpriteNode(imageNamed: "shuttle")
+            // Now we position our live nodes
+            liveNode.position = CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
