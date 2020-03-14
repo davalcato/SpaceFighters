@@ -29,6 +29,8 @@ class GameViewController: UIViewController {
             
             view.showsFPS = true
             view.showsNodeCount = true
+            // This draws the thin line around the enemy nodes
+            view.showsPhysics = true
         }
     }
 
