@@ -10,6 +10,14 @@ import SpriteKit
 import GameplayKit
 import CoreMotion
 
+enum CollisionType: UInt32 {
+    case player = 1
+    case playerWeapon = 2
+    case enemy = 4
+    case enemyWeapon = 8
+    
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield:SKEmitterNode!
@@ -50,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = SKSpriteNode(imageNamed: "shuttle")
 //        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
         
-        player.size = CGSize(width: self.player.size.width*2, height: self.player.size.height*2)
+        player.size = CGSize(width: self.player.size.width*1, height: self.player.size.height*1)
         player.position = CGPoint(x: frame.midX - 20, y: frame.midY - 300)
         
         
