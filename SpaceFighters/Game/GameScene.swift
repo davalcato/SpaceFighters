@@ -61,6 +61,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.size = CGSize(width: self.player.size.width*1, height: self.player.size.height*1)
         player.position = CGPoint(x: frame.midX - 20, y: frame.midY - 300)
         
+        // Giving the player some Physics
+        player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.texture!.size())
+        // Describing the categoryBitMask here
+        player.physicsBody?.categoryBitMask = CollisionType.player.rawValue
+        // Contact with the enemy will destroy the player here
+        player.physicsBody?.collisionBitMask = CollisionType.enemy.rawValue | CollisionType.enemyWeapon.rawValue
+        player.physicsBody?.contactTestBitMask = CollisionType.enemy.rawValue | CollisionType.enemyWeapon.rawValue
+        
         
         self.addChild(player)
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
