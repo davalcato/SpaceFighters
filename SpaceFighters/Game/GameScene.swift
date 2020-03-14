@@ -32,8 +32,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let motionManger = CMMotionManager()
     var xAcceleration:CGFloat = 0
     
+    // Adds a new Property with the lives
+    var livesArray:[SKSpriteNode]!
+    
     
     override func didMove(to view: SKView) {
+        //Calling addLives directly when we move into that view.
+        addLives()
       
         starfield = SKEmitterNode(fileNamed: "Starfield")
         starfield.position = CGPoint(x: 0, y: 1472)
@@ -46,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
         
         player.size = CGSize(width: self.player.size.width*2, height: self.player.size.height*2)
-        player.position = CGPoint(x: frame.midX - 5, y: frame.midY - 500)
+        player.position = CGPoint(x: frame.midX - 20, y: frame.midY - 300)
         
         
         self.addChild(player)
@@ -54,15 +59,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         scoreLabel = SKLabelNode(text: "Score: 0")
-        scoreLabel.position = CGPoint(x: -200, y: 484)
+        scoreLabel.position = CGPoint(x: 80, y: self.frame.size.height - 70)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
-        scoreLabel.fontSize = 36
+        scoreLabel.fontSize = 26
         scoreLabel.fontColor = UIColor.white
         score = 0
         
         self.addChild(scoreLabel)
-       
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
+        
+        // If we fire the Timer my frequently then we can create more aliens
+        var timeInterval = 0.75
+        
+        if UserDefaults.standard.bool(forKey: "hard") {
+            timeInterval = 0.3
+            
+        }
+        // More aliens will be generated according to the choice made out of hard or easy.
+        gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
         
         motionManger.accelerometerUpdateInterval = 0.2
         motionManger.startAccelerometerUpdates(to: OperationQueue.current!) { (data:CMAccelerometerData?, error:Error?) in
@@ -72,7 +85,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
         }
-        
+    }
+    
+    func addLives() {
+        livesArray = [SKSpriteNode]()
+        // Looping thru 3 live here and everytime we iterate thru that loop we create a live node
+        for live in 1 ... 3 {
+            let liveNode = SKSpriteNode(imageNamed: "shuttle")
+            // Now we position our live nodes and they're size
+            liveNode.position = CGPoint(x: self.frame.size.width - CGFloat(4 - live) * liveNode.size.width, y: self.frame.size.height - 60)
+            self.addChild(liveNode)
+            livesArray.append(liveNode)
+            
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch: AnyObject in touches {
+            let location = touch.location(in: self)
+            
+            player.position.x = location.x
+            
+            
+        }
     }
     
     @objc func addAlien () {
@@ -98,6 +133,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var actionArray = [SKAction]()
         
         actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height), duration: TimeInterval(animationDuration)))
+        
+        // This action happens only if the aliens move off the bottom screen then a sound goes off
+        actionArray.append(SKAction.run {
+            self.run(SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false))
+            // Check the lives count here
+            if self.livesArray.count > 0 {
+                // Here we remove a live
+                let liveNode = self.livesArray.first
+                // Make the aliens disappear
+                liveNode?.removeFromParent()
+                self.livesArray.removeFirst()
+                
+                // Here we check to see if self and LivesArray count has reached zero
+                if self.livesArray.count == 0 {
+                    // And if it did that this means that the game is over
+                    // GameOverScreen Transition
+                    let transition = SKTransition.flipHorizontal(withDuration: 0.5)
+                    let gameOver = SKScene(fileNamed: "GameOverScene") as! GameOverScene
+                    gameOver.score = self.score
+                    self.view?.presentScene(gameOver, transition: transition)
+                    
+                }
+                
+            }
+            
+        })
         
         actionArray.append(SKAction.removeFromParent())
         
