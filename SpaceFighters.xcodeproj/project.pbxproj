@@ -28,6 +28,8 @@
 		756EEFB8241D52E800F10110 /* waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 756EEFB7241D52E800F10110 /* waves.json */; };
 		756EEFBA241D539600F10110 /* EnemyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFB9241D539600F10110 /* EnemyType.swift */; };
 		756EEFBC241D543000F10110 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFBB241D543000F10110 /* Wave.swift */; };
+		756EEFBE241D577600F10110 /* Bundle-Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFBD241D577600F10110 /* Bundle-Decoding.swift */; };
+		756EEFC0241D5D1500F10110 /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFBF241D5D1500F10110 /* EnemyNode.swift */; };
 		75A1CEB4241AC7790007F3D9 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 75A1CEB3241AC7790007F3D9 /* lose.wav */; };
 		75A1CEB6241AD4090007F3D9 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 75A1CEB5241AD4090007F3D9 /* MenuScene.sks */; };
 		75A1CEB8241AE36E0007F3D9 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A1CEB7241AE36E0007F3D9 /* MenuScene.swift */; };
@@ -78,6 +80,8 @@
 		756EEFB7241D52E800F10110 /* waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waves.json; sourceTree = SOURCE_ROOT; };
 		756EEFB9241D539600F10110 /* EnemyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyType.swift; sourceTree = "<group>"; };
 		756EEFBB241D543000F10110 /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
+		756EEFBD241D577600F10110 /* Bundle-Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decoding.swift"; sourceTree = "<group>"; };
+		756EEFBF241D5D1500F10110 /* EnemyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		75A1CEB3241AC7790007F3D9 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		75A1CEB5241AD4090007F3D9 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		75A1CEB7241AE36E0007F3D9 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 				7506C2E32415551D00782859 /* GameScene.swift */,
 				756EEFB9241D539600F10110 /* EnemyType.swift */,
 				756EEFBB241D543000F10110 /* Wave.swift */,
+				756EEFBF241D5D1500F10110 /* EnemyNode.swift */,
+				756EEFBD241D577600F10110 /* Bundle-Decoding.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -363,8 +369,10 @@
 				7506C2E42415551D00782859 /* GameScene.swift in Sources */,
 				756EEFBA241D539600F10110 /* EnemyType.swift in Sources */,
 				75A1CEB8241AE36E0007F3D9 /* MenuScene.swift in Sources */,
+				756EEFBE241D577600F10110 /* Bundle-Decoding.swift in Sources */,
 				756EEFBC241D543000F10110 /* Wave.swift in Sources */,
 				7506C2E62415551D00782859 /* GameViewController.swift in Sources */,
+				756EEFC0241D5D1500F10110 /* EnemyNode.swift in Sources */,
 				7506C2DE2415551D00782859 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
