@@ -24,6 +24,10 @@
 		751D037624156C44000EDC5A /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 751D037324156C43000EDC5A /* Explosion.sks */; };
 		751D037724156C44000EDC5A /* Starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = 751D037424156C44000EDC5A /* Starfield.sks */; };
 		751D037824156C44000EDC5A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 751D037524156C44000EDC5A /* spark.png */; };
+		751D0E3B241D31A200A56224 /* enemy-types.json in Resources */ = {isa = PBXBuildFile; fileRef = 751D0E3A241D31A200A56224 /* enemy-types.json */; };
+		756EEFB8241D52E800F10110 /* waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 756EEFB7241D52E800F10110 /* waves.json */; };
+		756EEFBA241D539600F10110 /* EnemyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFB9241D539600F10110 /* EnemyType.swift */; };
+		756EEFBC241D543000F10110 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EEFBB241D543000F10110 /* Wave.swift */; };
 		75A1CEB4241AC7790007F3D9 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 75A1CEB3241AC7790007F3D9 /* lose.wav */; };
 		75A1CEB6241AD4090007F3D9 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 75A1CEB5241AD4090007F3D9 /* MenuScene.sks */; };
 		75A1CEB8241AE36E0007F3D9 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A1CEB7241AE36E0007F3D9 /* MenuScene.swift */; };
@@ -70,6 +74,10 @@
 		751D037324156C43000EDC5A /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		751D037424156C44000EDC5A /* Starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Starfield.sks; sourceTree = "<group>"; };
 		751D037524156C44000EDC5A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		751D0E3A241D31A200A56224 /* enemy-types.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "enemy-types.json"; sourceTree = SOURCE_ROOT; };
+		756EEFB7241D52E800F10110 /* waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waves.json; sourceTree = SOURCE_ROOT; };
+		756EEFB9241D539600F10110 /* EnemyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyType.swift; sourceTree = "<group>"; };
+		756EEFBB241D543000F10110 /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		75A1CEB3241AC7790007F3D9 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		75A1CEB5241AD4090007F3D9 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		75A1CEB7241AE36E0007F3D9 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 				75A1CEA92419CA010007F3D9 /* Emitters */,
 				75A1CEAA2419CA1D0007F3D9 /* Sounds */,
 				7506C2EA2415552200782859 /* Assets.xcassets */,
+				751D0E3A241D31A200A56224 /* enemy-types.json */,
+				756EEFB7241D52E800F10110 /* waves.json */,
 				7506C2EC2415552200782859 /* LaunchScreen.storyboard */,
 				7506C2EF2415552200782859 /* Info.plist */,
 			);
@@ -171,6 +181,8 @@
 			children = (
 				7506C2DF2415551D00782859 /* GameScene.sks */,
 				7506C2E32415551D00782859 /* GameScene.swift */,
+				756EEFB9241D539600F10110 /* EnemyType.swift */,
+				756EEFBB241D543000F10110 /* Wave.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -316,10 +328,12 @@
 				7506C2EE2415552200782859 /* LaunchScreen.storyboard in Resources */,
 				751D037024156AA9000EDC5A /* explosion.mp3 in Resources */,
 				751D037824156C44000EDC5A /* spark.png in Resources */,
+				751D0E3B241D31A200A56224 /* enemy-types.json in Resources */,
 				75A1CEB6241AD4090007F3D9 /* MenuScene.sks in Resources */,
 				751D037624156C44000EDC5A /* Explosion.sks in Resources */,
 				751D037724156C44000EDC5A /* Starfield.sks in Resources */,
 				751D036F24156AA9000EDC5A /* torpedo.mp3 in Resources */,
+				756EEFB8241D52E800F10110 /* waves.json in Resources */,
 				7506C2E22415551D00782859 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +361,9 @@
 			files = (
 				7501433D241B297600E3AEA3 /* GameOverScene.swift in Sources */,
 				7506C2E42415551D00782859 /* GameScene.swift in Sources */,
+				756EEFBA241D539600F10110 /* EnemyType.swift in Sources */,
 				75A1CEB8241AE36E0007F3D9 /* MenuScene.swift in Sources */,
+				756EEFBC241D543000F10110 /* Wave.swift in Sources */,
 				7506C2E62415551D00782859 /* GameViewController.swift in Sources */,
 				7506C2DE2415551D00782859 /* AppDelegate.swift in Sources */,
 			);
