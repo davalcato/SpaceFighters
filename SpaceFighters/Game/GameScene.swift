@@ -68,6 +68,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Contact with the enemy will destroy the player here
         player.physicsBody?.collisionBitMask = CollisionType.enemy.rawValue | CollisionType.enemyWeapon.rawValue
         player.physicsBody?.contactTestBitMask = CollisionType.enemy.rawValue | CollisionType.enemyWeapon.rawValue
+        player.physicsBody?.isDynamic = false
+        
         
         
         self.addChild(player)
